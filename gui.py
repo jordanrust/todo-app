@@ -11,21 +11,21 @@ sg.theme("LightGreen3")
 
 clock = sg.Text('', key="clock")
 label = sg.Text("Type in a to-do")
-input_box = sg.InputText(tooltip="Enter todo", key="todo")
-add_button = sg.Button("Add")
+input_box = sg.InputText(tooltip="Enter todo", key="todo", size=25)
+add_button = sg.Button("Add", size=22)
 list_box = sg.Listbox(values=functions.get_todos(), key='todos',
-                      enable_events=True, size=(25, 5))
-edit_button = sg.Button("Edit")
-complete_button = sg.Button("Complete")
-exit_button = sg.Button("Exit")
+                      enable_events=True, size=(25, 8))
+edit_button = sg.Button("Edit", size=22)
+complete_button = sg.Button("Complete", size=22)
+exit_button = sg.Button("Exit", size=22)
 
 window = sg.Window('My To-Do App',
                    layout=[[clock],
                            [label],
-                           [input_box, add_button],
-                           [list_box, edit_button, complete_button],
-                           [exit_button]],
-                   font=('Helvetica', 15))
+                           [sg.Column([[input_box], [list_box]]),
+                           sg.Column([[add_button], [edit_button], [complete_button], [exit_button]])]],
+                   font=('Helvetica', 10),
+                   size=(320, 250))
 while True:
     event, values = window.read(timeout=200)
     window["clock"].update(value=time.strftime("%x   %X"))
