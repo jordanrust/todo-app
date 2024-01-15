@@ -4,3 +4,7 @@ Visit the new museum.
 Print the pictures.
 Fix the floor
 Buy grocery.
+Clean the bag
+Fix lamp.
+help neigbour.
+get paper
